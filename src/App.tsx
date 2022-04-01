@@ -1,8 +1,11 @@
 import React from 'react';
+import CardList from "./components/CardList";
 
 const App = () => {
   return (
-    <div></div>
+    <div>
+      <CardList />
+    </div>
   );
 }
 
