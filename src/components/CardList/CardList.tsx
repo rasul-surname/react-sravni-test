@@ -10,12 +10,13 @@ import classes from './CardList.module.scss';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const CardList: React.FC = () => {
-    const {cards, loading, error} = useTypedSelector(state => state.card);
+    const {cards, loading, error, countCards} = useTypedSelector(state => state.card);
+    const [countPosts, setCountPosts] = useState(countCards);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchCards());
-    }, []);
+    }, [countPosts]);
 
     if(loading) {
          return <h1>Идет загрузка...</h1>
@@ -24,13 +25,18 @@ const CardList: React.FC = () => {
          return <h1>{error}</h1>
     }
 
+    function showAllCards() {
+        setCountPosts(undefined);
+    }
+
     return (
         <div className={classes.wrapper}>
             <div className={classes.container}>
-                {cards.map((item, index) => {
+                {cards.slice(0, countPosts).map((item, index) => {
                     return <Card item={item} index={index} />
                 })}
             </div>
+            <button className={classes.btn} onClick={showAllCards}>Показать ещё</button>
         </div>
     );
 };

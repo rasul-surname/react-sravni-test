@@ -2,6 +2,7 @@ export interface CardState {
     cards: any[];
     loading: boolean;
     error: null | string;
+    countCards?: number | undefined;
 }
 
 export enum CardActionTypes {

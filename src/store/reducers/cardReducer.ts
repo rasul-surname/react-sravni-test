@@ -4,6 +4,7 @@ const initialState: CardState = {
     cards: [],
     loading: false,
     error: null,
+    countCards: 10,
 }
 
 export const cardReducer = (state = initialState, action: CardAction): CardState => {
