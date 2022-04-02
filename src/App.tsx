@@ -1,14 +1,17 @@
 import React from 'react';
-import CardList from "./components/CardList/CardList";
-import Header from "./components/Header/Header";
+
+import {Route, Routes} from "react-router-dom";
+
+import HomePage from "./components/HomePage/HomePage";
+import PageCard from "./components/PageCard/PageCard";
 
 const App = () => {
-  return (
-    <div>
-        <Header />
-        <CardList />
-    </div>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/page/:id" element={<PageCard />} />
+        </Routes>
+    );
 }
 
 export default App;
