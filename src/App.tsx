@@ -1,10 +1,12 @@
 import React from 'react';
-import CardList from "./components/CardList";
+import CardList from "./components/CardList/CardList";
+import Header from "./components/Header/Header";
 
 const App = () => {
   return (
     <div>
-      <CardList />
+        <Header />
+        <CardList />
     </div>
   );
 }

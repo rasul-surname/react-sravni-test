@@ -1,11 +1,10 @@
-import {CardAction, CardActionTypes} from "../types/card";
+import {CardAction, CardActionTypes} from "../../types/card";
 import {Dispatch} from "redux";
 
 
 export const fetchCards = () => {
     return async (dispatch: Dispatch<CardAction>) => {
         try {
-            dispatch({type: CardActionTypes.FETCH_CARDS});
             const response = await fetch("http://localhost:3001/data");
             const payload = await response.json();;
             setTimeout(() => {

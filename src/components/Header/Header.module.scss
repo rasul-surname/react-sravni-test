@@ -1,0 +1,27 @@
+.wrapper {
+    height: 200px;
+    padding: 20px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #dddede;
+}
+
+.content {
+    width: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.header__title {
+    font-family: "Ubuntu";
+    font-size: 2.5em;
+    text-align: center;
+    color: #3c3e44;
+
+    a {
+        color: rgb(0, 175, 255);
+        border-bottom: 1px solid #00AFFF;
+    }
+    a:hover {
+        border-bottom: 0px solid black;
+    }
+}
