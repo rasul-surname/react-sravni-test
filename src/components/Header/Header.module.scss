@@ -25,3 +25,10 @@
         border-bottom: 0px solid black;
     }
 }
+
+@media (max-width: 1200px) {
+    .header__title {
+        font-family: "Ubuntu";
+        font-size: 2em;
+    }
+}

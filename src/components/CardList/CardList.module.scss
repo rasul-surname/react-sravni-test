@@ -30,3 +30,10 @@
     color: rgb(255, 255, 255);
     background-color: rgb(13, 209, 73);
 }
+
+@media (max-width: 1200px) {
+    .wrapper {
+        padding: 15px;
+        background: #EBF0F3;
+    }
+}

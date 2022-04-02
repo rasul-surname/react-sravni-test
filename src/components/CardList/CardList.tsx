@@ -36,7 +36,7 @@ const CardList: React.FC = () => {
                     return <Card item={item} index={index} />
                 })}
             </div>
-            <button className={classes.btn} onClick={showAllCards}>Показать ещё</button>
+            {countPosts ? <button className={classes.btn} onClick={showAllCards}>Показать ещё</button> : ''}
         </div>
     );
 };
