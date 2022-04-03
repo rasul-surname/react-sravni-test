@@ -27,6 +27,11 @@ export const cardReducer = (state = initialState, action: CardAction): CardState
                 error: action.payload,
                 cards: [],
             }
+        case CardActionTypes.SORT_DATA:
+            return {
+                ...state,
+                cards: action.payload,
+            }
         default:
             return state;
     }

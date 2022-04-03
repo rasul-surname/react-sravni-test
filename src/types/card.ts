@@ -9,6 +9,7 @@ export enum CardActionTypes {
     FETCH_CARDS = "FETCH_CARDS",
     FETCH_CARDS_SUCCESS = "FETCH_CARDS_SUCCESS",
     FETCH_CARDS_ERROR = "FETCH_CARDS_ERROR",
+    SORT_DATA = "SORT_DATA",
 }
 
 interface FetchCardsAction {
@@ -22,5 +23,9 @@ interface FetchCardsErrorAction {
     type: CardActionTypes.FETCH_CARDS_ERROR;
     payload: string;
 }
+interface SortCardsAction {
+    type: CardActionTypes.SORT_DATA;
+    payload: any[];
+}
 
-export type CardAction = FetchCardsAction | FetchCardsSuccessAction | FetchCardsErrorAction;
+export type CardAction = FetchCardsAction | FetchCardsSuccessAction | FetchCardsErrorAction | SortCardsAction;

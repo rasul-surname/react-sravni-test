@@ -21,16 +21,17 @@ const Card: React.FC<InterfaceCard> = ({index, item}) => {
                 <img src={item.organization.logo} alt={item.organization.name} />
             </div>
             <div>
+                <p className={classes.floatingRate}>{item.rate.periods[0].rate.from} %</p>
                 <p>{item.name}</p>
             </div>
             <div>
-                <h4>
+                <p className={classes.rate}>
                     {item.rate.creditAmount.to ?
                         prettify(item.rate.creditAmount.from) + ' - ' + prettify(item.rate.creditAmount.to)
                         :
                         prettify(item.rate.creditAmount.from)
                     }
-                </h4>
+                </p>
             </div>
             <div>
                 <p>Возвраст от {item.customerRequirements.age} лет</p>
