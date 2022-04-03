@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-sravni-test/static/css/main.7bc79d98.css",
+    "main.js": "/react-sravni-test/static/js/main.913c9e7f.js",
+    "index.html": "/react-sravni-test/index.html",
+    "main.7bc79d98.css.map": "/react-sravni-test/static/css/main.7bc79d98.css.map",
+    "main.913c9e7f.js.map": "/react-sravni-test/static/js/main.913c9e7f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7bc79d98.css",
+    "static/js/main.913c9e7f.js"
+  ]
+}
