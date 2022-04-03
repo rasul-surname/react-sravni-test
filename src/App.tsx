@@ -8,8 +8,8 @@ import PageCard from "./components/PageCard/PageCard";
 const App = () => {
     return (
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/page/:id" element={<PageCard />} />
+            <Route path="react-sravni-test/" element={<HomePage />} />
+            <Route path="react-sravni-test/page/:id" element={<PageCard />} />
         </Routes>
     );
 }

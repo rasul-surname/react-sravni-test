@@ -38,7 +38,7 @@ const Card: React.FC<InterfaceCard> = ({index, item}) => {
                 <p>{item.customerRequirements.documents} документа</p>
             </div>
             <div>
-                <Link to={`/page/${(index)}`}>
+                <Link to={`page/${(index)}`}>
                     <button className={classes.card__btn}>Перейти на сайт</button>
                 </Link>
             </div>

@@ -26,7 +26,7 @@ const PageCard = () => {
                                 <p>{item.customerRequirements.documents} документа</p>
                             </div>
                             <div>
-                                <Link to={`/`}>
+                                <Link to={`/react-sravni-test`}>
                                     <button className={classes.card__btn}>Вернуться назад</button>
                                 </Link>
                             </div>
