@@ -2,6 +2,7 @@ import {CardAction, CardActionTypes, CardState} from "../../types/card";
 
 const initialState: CardState = {
     cards: [],
+    visibleCards: [],
     loading: false,
     error: null,
     countCards: 10,
@@ -20,6 +21,7 @@ export const cardReducer = (state = initialState, action: CardAction): CardState
                 loading: false,
                 error: null,
                 cards: action.payload,
+                visibleCards: action.payload,
             }
         case CardActionTypes.FETCH_CARDS_ERROR:
             return {
@@ -30,8 +32,29 @@ export const cardReducer = (state = initialState, action: CardAction): CardState
         case CardActionTypes.SORT_DATA:
             return {
                 ...state,
-                cards: action.payload,
+                visibleCards: action.payload,
             }
+        case CardActionTypes.FILTER_DATA:
+            switch (action.payload) {
+                case 'ANY':
+                    return {
+                        ...state,
+                        visibleCards: state.cards,
+                    }
+                case action.payload:
+                    return {
+                        ...state,
+                        visibleCards: state.cards.filter((item) => {
+                            return item.name == action.payload;
+                        }),
+                    }
+                default:
+                    return {
+                        ...state,
+                        visibleCards: state.cards,
+                    };
+            }
+
         default:
             return state;
     }

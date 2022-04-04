@@ -1,5 +1,5 @@
 .wrapper {
-    height: 200px;
+    height: 40vh;
     padding: 20px;
     background: #FFFFFF;
     border-bottom: 1px solid #dddede;
@@ -18,11 +18,21 @@
     color: #3c3e44;
 
     a {
+
         color: rgb(0, 175, 255);
         border-bottom: 1px solid #00AFFF;
     }
     a:hover {
         border-bottom: 0px solid black;
+    }
+}
+
+.form__row {
+    padding: 0px 30px;
+
+    .form__title {
+        color: rgb(140, 140, 140);
+        margin-bottom: 10px;
     }
 }
 

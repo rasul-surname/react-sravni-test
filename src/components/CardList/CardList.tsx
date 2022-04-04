@@ -11,13 +11,19 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {CardActionTypes} from "../../types/card";
 
 const CardList: React.FC = () => {
-    const {cards, loading, error, countCards} = useTypedSelector(state => state.card);
+    const {cards, visibleCards, loading, error, countCards} = useTypedSelector(state => state.card);
     const [countPosts, setCountPosts] = useState(countCards);
     const [flag, setFlag] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchCards());
+        if(cards.length == 0) {
+            dispatch(fetchCards());
+        }
+        // @ts-ignore
+        if(countCards <= visibleCards.length) {
+            setCountPosts(undefined);
+        }
     }, [countPosts]);
 
     if(loading) {
@@ -32,16 +38,16 @@ const CardList: React.FC = () => {
     }
 
     function sortData(name: string) {
-        const copyCards = cards.concat();
+        const copyCards = visibleCards.concat();
 
         if(name === 'sum') {
-            copyCards.sort((a, b) => a['rate'].creditAmount.from > b['rate'].creditAmount.from ? 1 : -1);
+            copyCards.sort((a: any, b: any) => a['rate'].creditAmount.from > b['rate'].creditAmount.from ? 1 : -1);
             setFlag(!flag);
             dispatch({type: CardActionTypes.SORT_DATA, payload: copyCards});
         }
 
         if(name === 'rate') {
-            copyCards.sort((a, b) => a['rate'].periods[0].rate.from > b['rate'].periods[0].rate.from ? 1 : -1);
+            copyCards.sort((a: any, b: any) => a['rate'].periods[0].rate.from > b['rate'].periods[0].rate.from ? 1 : -1);
             setFlag(!flag);
             dispatch({type: CardActionTypes.SORT_DATA, payload: copyCards});
         }
@@ -68,7 +74,7 @@ const CardList: React.FC = () => {
                         по сумме
                     </button>
                 </div>
-                {cards.slice(0, countPosts).map((item, index) => {
+                {visibleCards.slice(0, countPosts).map((item: any, index: number) => {
                     return <Card item={item} index={index} />
                 })}
             </div>
