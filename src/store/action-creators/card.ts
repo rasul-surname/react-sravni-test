@@ -16,6 +16,7 @@ export const fetchCards = () => {
             // }, 1000);
 
             // Вызов через статичный файл + задержка для эмуляции работы сервера
+            dispatch({type: CardActionTypes.FETCH_CARDS});
             setTimeout(() => {
                     dispatch({
                         type: CardActionTypes.FETCH_CARDS_SUCCESS,

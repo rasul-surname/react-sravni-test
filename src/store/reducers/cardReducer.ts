@@ -12,22 +12,21 @@ export const cardReducer = (state = initialState, action: CardAction): CardState
     switch (action.type) {
         case CardActionTypes.FETCH_CARDS:
             return {
+                ...state,
                 loading: true,
-                error: null,
-                cards: [],
             }
         case CardActionTypes.FETCH_CARDS_SUCCESS:
             return {
+                ...state,
                 loading: false,
-                error: null,
                 cards: action.payload,
                 visibleCards: action.payload,
             }
         case CardActionTypes.FETCH_CARDS_ERROR:
             return {
+                ...state,
                 loading: false,
                 error: action.payload,
-                cards: [],
             }
         case CardActionTypes.SORT_DATA:
             return {
@@ -54,7 +53,12 @@ export const cardReducer = (state = initialState, action: CardAction): CardState
                         visibleCards: state.cards,
                     };
             }
-
+        case CardActionTypes.SHOW_ALL_CARDS:
+            let result = state.countCards <= state.visibleCards.length ? undefined : '';
+            return {
+                ...state,
+                countCards: result,
+            }
         default:
             return state;
     }

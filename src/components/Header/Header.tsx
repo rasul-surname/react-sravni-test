@@ -1,15 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './Header.module.scss';
 import {CardActionTypes} from "../../types/card";
 import {useDispatch} from "react-redux";
-import { Select } from 'antd';
+import SelectComponent from "../Select/Select";
 
 const Header = () => {
     const dispatch = useDispatch();
-    const { Option } = Select;
+    const filterList = [
+        {value: 'ANY'},
+        {value: 'Квартира или доля'},
+        {value: 'Загородная недвижимость'},
+        {value: 'Новостройка'},
+    ]
 
     function handleChange(value: any) {
-        console.log(`selected ${value}`);
         dispatch({type: CardActionTypes.FILTER_DATA, payload: value});
     }
 
@@ -20,12 +24,7 @@ const Header = () => {
                 <div className={classes.form__row}>
                     <div className={classes.form__column}>
                         <p className={classes.form__title}>Цель ипотеки</p>
-                        <Select onChange={handleChange} defaultValue="Любая" style={{ width: 280 }}>
-                            <Option value="ANY">Любая</Option>
-                            <Option value="Квартира или доля">Квартира или доля</Option>
-                            <Option value="Загородная недвижимость">Загородная недвижимость</Option>
-                            <Option value="Новостройка">Новостройка</Option>
-                        </Select>
+                        <SelectComponent onChange={handleChange} filterList={filterList} />
                     </div>
                 </div>
             </div>

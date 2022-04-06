@@ -4,6 +4,8 @@ import {Link, useParams} from "react-router-dom";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 import classes from './Page.module.scss';
+import Card from "../CardList/Card/Card";
+import Button from "../Button/Button";
 
 const PageCard = () => {
     const { cards } = useTypedSelector(state => state.card);
@@ -15,21 +17,10 @@ const PageCard = () => {
                 {cards.slice(id, Number(id) + 1).map((item, index) => {
                     return (
                         <div>
-                            <div>
-                                <img src={item.organization.logo} alt={item.organization.name} />
-                            </div>
-                            <div>
-                                <p>{item.name}</p>
-                            </div>
-                            <div>
-                                <p>Возвраст от {item.customerRequirements.age} лет</p>
-                                <p>{item.customerRequirements.documents} документа</p>
-                            </div>
-                            <div>
-                                <Link to={`/react-sravni-test`}>
-                                    <button className={classes.card__btn}>Вернуться назад</button>
-                                </Link>
-                            </div>
+                            <Card index={index} item={item} />
+                            <Link to={`/react-sravni-test`}>
+                                <Button value="Вернуться назад" className={classes.card__btn} />
+                            </Link>
                         </div>
                     )
                 })}

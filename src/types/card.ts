@@ -3,7 +3,7 @@ export interface CardState {
     visibleCards?: any;
     loading: boolean;
     error: null | string;
-    countCards?: number | undefined;
+    countCards?: any;
 }
 
 export enum CardActionTypes {
@@ -12,6 +12,7 @@ export enum CardActionTypes {
     FETCH_CARDS_ERROR = "FETCH_CARDS_ERROR",
     SORT_DATA = "SORT_DATA",
     FILTER_DATA = "FILTER_DATA",
+    SHOW_ALL_CARDS = "SHOW_ALL_CARDS",
 }
 
 interface FetchCardsAction {
@@ -34,4 +35,8 @@ interface FilterCardsAction {
     payload: any;
 }
 
-export type CardAction = FetchCardsAction | FetchCardsSuccessAction | FetchCardsErrorAction | SortCardsAction | FilterCardsAction;
+interface ShowAllCardsAction {
+    type: CardActionTypes.SHOW_ALL_CARDS;
+}
+
+export type CardAction = FetchCardsAction | FetchCardsSuccessAction | FetchCardsErrorAction | SortCardsAction | FilterCardsAction | ShowAllCardsAction;
