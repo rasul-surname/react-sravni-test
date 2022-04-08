@@ -4,6 +4,10 @@ export interface CardState {
     loading: boolean;
     error: null | string;
     countCards?: any;
+    targetList: any;
+    targetPath: string;
+    priceList: any;
+    pricePath: string;
 }
 
 export enum CardActionTypes {

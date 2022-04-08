@@ -11,7 +11,7 @@
     margin: 0 auto;
 }
 
-.header__title {
+.title {
     font-family: "Ubuntu";
     font-size: 2.5em;
     text-align: center;
@@ -27,17 +27,14 @@
     }
 }
 
-.form__row {
+.form__column {
     padding: 0px 30px;
-
-    .form__title {
-        color: rgb(140, 140, 140);
-        margin-bottom: 10px;
-    }
+    display: flex;
+    justify-content: space-around;
 }
 
 @media (max-width: 1200px) {
-    .header__title {
+    .title {
         font-family: "Ubuntu";
         font-size: 2em;
     }

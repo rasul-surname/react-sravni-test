@@ -6,6 +6,21 @@ const initialState: CardState = {
     loading: false,
     error: null,
     countCards: 10,
+    targetList: [
+        {value: 'Любая'},
+        {value: 'Квартира или доля'},
+        {value: 'Загородная недвижимость'},
+        {value: 'Новостройка'},
+    ],
+    targetPath: 'name',
+    priceList: [
+        {value: 'Любая'},
+        {value: '300000'},
+        {value: '7000000'},
+        {value: '500000'},
+        {value: '600000'},
+    ],
+    pricePath: 'rate.creditAmount.from',
 }
 
 export const cardReducer = (state = initialState, action: CardAction): CardState => {
@@ -34,17 +49,24 @@ export const cardReducer = (state = initialState, action: CardAction): CardState
                 visibleCards: action.payload,
             }
         case CardActionTypes.FILTER_DATA:
-            switch (action.payload) {
-                case 'ANY':
+            switch (action.payload.value) {
+                case 'Любая':
                     return {
                         ...state,
                         visibleCards: state.cards,
                     }
-                case action.payload:
+                case action.payload.value:
                     return {
                         ...state,
                         visibleCards: state.cards.filter((item) => {
-                            return item.name == action.payload;
+                            let result = action.payload.path.split('.').reduce((acc: any, elem: any) => {
+                                if(acc === null) {
+                                    return item[elem];
+                                }
+                                return acc[elem];
+                            }, null);
+
+                            return result == action.payload.value;
                         }),
                     }
                 default:

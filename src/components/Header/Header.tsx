@@ -1,31 +1,18 @@
 import React from 'react';
 import classes from './Header.module.scss';
-import {CardActionTypes} from "../../types/card";
-import {useDispatch} from "react-redux";
 import SelectComponent from "../Select/Select";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const Header = () => {
-    const dispatch = useDispatch();
-    const filterList = [
-        {value: 'ANY'},
-        {value: 'Квартира или доля'},
-        {value: 'Загородная недвижимость'},
-        {value: 'Новостройка'},
-    ]
-
-    function handleChange(value: any) {
-        dispatch({type: CardActionTypes.FILTER_DATA, payload: value});
-    }
+    const {targetList, targetPath, priceList, pricePath} = useTypedSelector(state => state.card);
 
     return (
         <div className={classes.wrapper}>
             <div className={classes.content}>
-                <h1 className={classes.header__title}>Ипотечный калькулятор <a>в Москве</a></h1>
-                <div className={classes.form__row}>
-                    <div className={classes.form__column}>
-                        <p className={classes.form__title}>Цель ипотеки</p>
-                        <SelectComponent onChange={handleChange} filterList={filterList} />
-                    </div>
+                <h1 className={classes.title}>Ипотечный калькулятор <a>в Москве</a></h1>
+                <div className={classes.form__column}>
+                    <SelectComponent title="Цель ипотеки" filterList={targetList} path={targetPath} />
+                    <SelectComponent title="Стоимость недвижимости" filterList={priceList} path={pricePath} />
                 </div>
             </div>
         </div>
