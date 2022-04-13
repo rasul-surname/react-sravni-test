@@ -5,9 +5,10 @@ import classes from "./Card.module.scss";
 interface InterfaceCard {
     index: number;
     item: any;
+    btnVisible: boolean;
 }
 
-const Card: React.FC<InterfaceCard> = ({index, item}) => {
+const Card: React.FC<InterfaceCard> = ({index, item, btnVisible}) => {
 
     function prettify (num: number) {
         let n = num.toString();
@@ -37,9 +38,9 @@ const Card: React.FC<InterfaceCard> = ({index, item}) => {
                 <p>Возвраст от {item.customerRequirements.age} лет</p>
                 <p>{item.customerRequirements.documents} документа</p>
             </div>
-            <div>
+            <div style={{display: btnVisible ? '' : 'none'}}>
                 <Link to={`page/${(index)}`}>
-                    <button className={classes.card__btn}>Перейти на сайт</button>
+                    <button className={classes.btn}>Перейти на сайт</button>
                 </Link>
             </div>
         </div>

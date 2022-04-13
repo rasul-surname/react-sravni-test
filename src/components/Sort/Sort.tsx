@@ -13,23 +13,22 @@ const Sort = () => {
         const copyCards = visibleCards.concat();
 
         if(name === 'sum') {
-            copyCards.sort((a: any, b: any) => a['rate'].creditAmount.from > b['rate'].creditAmount.from ? 1 : -1);
+            copyCards.sort((a: any, b: any) => a['rate'].creditAmount.from - b['rate'].creditAmount.from);
             setFlag(!flag);
-            dispatch({type: CardActionTypes.SORT_DATA, payload: copyCards});
+        }
+        if(name === 'rate') {
+            copyCards.sort((a: any, b: any) => a['rate'].periods[0].rate.from - b['rate'].periods[0].rate.from);
+            setFlag(!flag);
         }
 
-        if(name === 'rate') {
-            copyCards.sort((a: any, b: any) => a['rate'].periods[0].rate.from > b['rate'].periods[0].rate.from ? 1 : -1);
-            setFlag(!flag);
-            dispatch({type: CardActionTypes.SORT_DATA, payload: copyCards});
-        }
+        dispatch({type: CardActionTypes.SORT_DATA, payload: copyCards});
     }
 
     return (
         <div className={classes.sort}>Сортировать:
             &#160;&#160;
             <button
-                style={{background: "none", border: "none"}}
+                style={{background: "none", border: "none", opacity: flag ? "1" : "0.5"}}
                 onClick={() => sortData('rate')}
                 disabled={flag}
             >
@@ -37,7 +36,7 @@ const Sort = () => {
             </button>
             &#160;&#160;
             <button
-                style={{background: "none", border: "none"}}
+                style={{background: "none", border: "none", opacity: flag ? "0.5" : "1"}}
                 onClick={() => sortData('sum')}
                 disabled={!flag}
             >

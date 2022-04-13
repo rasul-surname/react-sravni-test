@@ -17,9 +17,9 @@ const PageCard = () => {
                 {cards.slice(id, Number(id) + 1).map((item, index) => {
                     return (
                         <div>
-                            <Card index={index} item={item} />
+                            <Card index={index} item={item} btnVisible={false} />
                             <Link to={`/react-sravni-test`}>
-                                <Button value="Вернуться назад" className={classes.card__btn} />
+                                <Button value="Вернуться назад" />
                             </Link>
                         </div>
                     )

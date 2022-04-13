@@ -33,7 +33,7 @@ const CardList: React.FC = () => {
                 <Sort />
                 <Loader />
                 {visibleCards.slice(0, countCards).map((item: any, index: number) => {
-                    return <Card item={item} index={index} />
+                    return <Card item={item} index={index} btnVisible={true} />
                 })}
             </div>
             {countCards < visibleCards.length ? <Button className={classes.btn} onClick={showAllCards} value="Показать ещё" /> : ''}
