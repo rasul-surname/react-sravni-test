@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-sravni-test/static/css/main.9e4764fc.css",
-    "main.js": "/react-sravni-test/static/js/main.fef10257.js",
+    "main.css": "/react-sravni-test/static/css/main.165a0d04.css",
+    "main.js": "/react-sravni-test/static/js/main.0ea1a7c0.js",
     "index.html": "/react-sravni-test/index.html",
-    "main.9e4764fc.css.map": "/react-sravni-test/static/css/main.9e4764fc.css.map",
-    "main.fef10257.js.map": "/react-sravni-test/static/js/main.fef10257.js.map"
+    "main.165a0d04.css.map": "/react-sravni-test/static/css/main.165a0d04.css.map",
+    "main.0ea1a7c0.js.map": "/react-sravni-test/static/js/main.0ea1a7c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e4764fc.css",
-    "static/js/main.fef10257.js"
+    "static/css/main.165a0d04.css",
+    "static/js/main.0ea1a7c0.js"
   ]
 }
