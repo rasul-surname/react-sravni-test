@@ -28,9 +28,10 @@
 }
 
 .form__column {
-    padding: 0px 30px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 1200px) {

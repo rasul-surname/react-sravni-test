@@ -8,17 +8,17 @@ import Card from "../CardList/Card/Card";
 import Button from "../Button/Button";
 
 const PageCard = () => {
-    const { cards } = useTypedSelector(state => state.card);
+    const { visibleCards } = useTypedSelector(state => state.card);
     const { id } = useParams<{id: any}>();
 
     return (
         <div className={classes.wrapper}>
             <div className={classes.container}>
-                {cards.slice(id, Number(id) + 1).map((item, index) => {
+                {visibleCards.slice(id, Number(id) + 1).map((item: any, index: number) => {
                     return (
                         <div>
                             <Card index={index} item={item} btnVisible={false} />
-                            <Link to={`/react-sravni-test`}>
+                            <Link to={`/react-sravni-test`} className={classes.btn}>
                                 <Button value="Вернуться назад" />
                             </Link>
                         </div>
